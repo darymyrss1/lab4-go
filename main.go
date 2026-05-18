@@ -1,15 +1,21 @@
 package main
 
 import (
+       "fmt"
+	   "log"
+	
 	"github.com/skip2/go-qrcode"
-	"log"
 )
 
 func main() {
        data := "https://google.com"
+	   fileName := "qrcode.png"
 
-	err := qrcode.WriteFile(data, qrcode.Medium, 256, "qr.png")
-	if err != nil {
-		log.Fatal("Ошибка сохранения файла: ", err)
+	   fmt.Println("Генерация QR-кода запущена...")
+
+       err := qrcode.WriteFile(url, qrcode.Medium, 512, fileName)
+	   if err != nil {
+               log.Fatal("Критическая ошибка: ", err)
 	}
+	   fmt.Printf("Готово! QR-код для %s сохранен как %s\n", url, fileName)
 }
