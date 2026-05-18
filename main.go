@@ -2,9 +2,14 @@ package main
 
 import (
 	"github.com/skip2/go-qrcode"
+	"log"
 )
 
 func main() {
-	// Базовая генерация без лишних настроек
-	qrcode.WriteFile("https://google.com", qrcode.Medium, 256, "qr.png")
+       data := "https://google.com"
+
+	err := qrcode.WriteFile(data, qrcode.Medium, 256, "qr.png")
+	if err != nil {
+		log.Fatal("Ошибка сохранения файла: ", err)
+	}
 }
